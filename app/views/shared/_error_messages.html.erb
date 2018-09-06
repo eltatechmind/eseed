@@ -1,0 +1,50 @@
+<% if !@user.nil? %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@user.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>
+
+<% if !@employee.nil? &&  @attendance.nil? %>
+
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@employee.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>
+
+<% if !@attendance.nil? %>
+
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@attendance.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @attendance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,24 @@
+<% provide(:title, "Edit Employee") %>
+<h1>Edit Employee</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@employee) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :hiredate, 'Hire Date'%>
+      <%= f.date_field :hiredate, class: 'form-control' %>
+
+      <%= f.label :mobile, 'Mobile (+20)' %>
+      <%= f.text_field :mobile, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

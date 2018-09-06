@@ -1,11 +1,98 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        HR Name: <%= @user.name %>
-  		Email: <%= @user.email %>
-      </h1>
-    </section>
-  </aside>
+<div class="jumbotron">
+  <div class="row">
+
+  	<aside class="col-md-4">
+  		<p class = "hdhd">My Info</p>
+  		<section class="user_info">
+  			<ul class="list-group">
+  				<li class="list-group-item beda"><div style= "color:red; font-weight: bold;">Name:</div><div style= "color:blue; font-weight: bold;"> <%= @user.name %></div></li>
+  				<li class="list-group-item beda"><div style= "color:red; font-weight: bold;">Email:</div><div style= "color:blue; font-weight: bold;"><%= @user.email %></div></li>
+  			</ul>
+  		</section>
+  	</aside>
+
+
+
+  	<aside class="col-md-4" style="margin-top:3.5px;">
+      	<p class = "hdhd">Current Employees</p>
+      	<% countr = 1 %>
+      	<% @employee.each do |addr| %>
+      		
+        	<div class= "list-group-item beda">
+        		<p style= "color:red; font-weight: bold;"> Employee #<%=countr%> </p>
+        		<ul class="list-group">
+
+	                <li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Employee id:</span><span style= "color:brown; font-weight: bold;"> #<%=addr.id%> </span></li>
+
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Name:</span><span style= "color:brown; font-weight: bold;"> <%=addr.name %> </span></li>
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Mobile:</span><span style= "color:brown; font-weight: bold;"> <%=addr.mobile %> </span></li>
+
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Email:</span><span style= "color:brown; font-weight: bold;"> <%=addr.email %> </span></li>
+
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Hire Date:</span><span style= "color:brown; font-weight: bold;"> <%=addr.hiredate %> </span></li>
+
+                <span class="editemployeeparent" id="<%= addr.id %>">
+                    <button class="editemployee btn btn-primary">Edit Employee</button>
+                </span>
+					
+	          		<span class="removeemployeeparent" id="<%= addr.id %>">
+	              		<button class="removeemployee btn btn-primary">Delete</button>
+	          		</span>
+
+	            	<p class="successr<%= addr.id %> alert alert-success" style="display: none;"></p>
+	            	<p class="errorl<%= addr.id %> alert alert-danger" style="display: none;"></p>
+        		</ul>    
+        	</div> 
+        	<br>
+        	<% countr+=1 %>
+        	
+      	<% end %>
+    
+    	<a href="../addemployee">
+      		<button class="btn btn-primary"">Add New Employee</button>
+    	</a>
+  	</aside>
+
+
+  	<aside class="col-md-4" style="margin-top:3.5px;">
+      	<p class = "hdhd">Current Attendances</p>
+      	<% countr = 1 %>
+      	<% @attendance.each do |addr| %>
+      		
+        	<div class= "list-group-item beda">
+        		<p style= "color:red; font-weight: bold;"> Attendance #<%=countr%> </p>
+        		<ul class="list-group">
+
+	                <li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Attendance id:</span><span style= "color:brown; font-weight: bold;"> #<%=addr.id%> </span></li>
+
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Working Hours:</span><span style= "color:brown; font-weight: bold;"> <%=addr.whours %> </span></li>
+          			
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Employee:</span><span style= "color:brown; font-weight: bold;"> <%=Employee.where(id: addr.employee_id).first.name %> </span></li>
+
+          			<li class="list-group-item beda"><span style= "color:green; font-weight: bold;">Status:</span><span style= "color:brown; font-weight: bold;"> <%=Status.where(id: addr.status_id).first.statu %> </span></li>
+
+                <span class="editattendanceparent" id="<%= addr.id %>">
+                    <button class="editattendance btn btn-primary">Edit Attendance</button>
+                </span>
+					
+	          		<span class="removeattendanceparent" id="<%= addr.id %>">
+	              		<button class="removeattendance btn btn-primary">Delete</button>
+	          		</span>
+
+	            	<p class="successr<%= addr.id %> alert alert-success" style="display: none;"></p>
+	            	<p class="errorl<%= addr.id %> alert alert-danger" style="display: none;"></p>
+        		</ul>    
+        	</div> 
+        	<br>
+        	<% countr+=1 %>
+        	
+      	<% end %>
+    
+    	<a href="../addattendance">
+      		<button class="btn btn-primary"">Add attendance</button>
+    	</a>
+  	</aside>
+
+  </div>
 </div>

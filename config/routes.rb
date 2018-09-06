@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   get 'statuss/new'
   get 'attendances/new'
   get 'employees/new'
-  get 'trips/new'
-  get 'pickups/new'
-  get 'places/new'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'sessions/new'
@@ -29,11 +26,13 @@ Rails.application.routes.draw do
   #employees routes
   get  '/addemployee',  to: 'employees#new'
   post '/addemployee',  to: 'employees#create'
+  post '/deleteemployee', to: 'employees#delete'
   resources :employees
 
   #attendances routes
   get  '/addattendance',  to: 'attendances#new'
   post '/addattendance',  to: 'attendances#create'
+  post '/deleteattendance', to: 'attendances#delete'
   resources :attendances
 
 

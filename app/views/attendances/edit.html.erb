@@ -16,7 +16,7 @@
       <%= f.label :employee_id, 'Employee' %>
       <%= f.select :employee_id,  options %>
 
-      <% options = options_from_collection_for_select(@status, 'id', 'name') %>
+      <% options = options_from_collection_for_select(@status, 'id', 'statu') %>
       <%= f.label :status_id, 'Status' %>
       <%= f.select :status_id,  options %>
 

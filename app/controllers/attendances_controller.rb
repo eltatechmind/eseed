@@ -37,6 +37,12 @@ class AttendancesController < ApplicationController
     end
   end
 
+  # delete action
+  def delete
+     @attendance = Attendance.find(params[:id])
+      @attendance.destroy
+      render json: { success_message: "Success!, Attendance is deleted." }, status: :ok
+  end
 
 
 

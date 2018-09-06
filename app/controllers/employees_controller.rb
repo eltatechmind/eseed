@@ -29,6 +29,12 @@ class EmployeesController < ApplicationController
     end
   end
 
+  # delete action
+  def delete
+      @employee = Employee.find(params[:id])
+      @employee.destroy
+      render json: { success_message: "Success!, Employee is deleted." }, status: :ok
+  end
 
 
 
